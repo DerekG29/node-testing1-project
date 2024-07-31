@@ -119,27 +119,27 @@ describe('[Exercise 6] Car', () => {
     expect(actual).toBe(expected);
   })
   test('[16] driving the car uses gas', () => {
-    const startingFuel = focus.fuel;
+    const startingFuel = focus.tank;
     focus.drive(30);
-    const endingFuel = focus.fuel;
+    const endingFuel = focus.tank;
     expect(endingFuel).toBeLessThan(startingFuel);
     expect(endingFuel).toBe(19);
   })
   test('[17] refueling allows to keep driving', () => {
     let odometer = focus.drive(1000);
-    let fuel = focus.fuel;
+    let fuel = focus.tank;
     expect(fuel).toBe(0)
     expect(odometer).toBe(600);
     focus.refuel(10);
     odometer = focus.drive(60);
-    fuel = focus.fuel;
+    fuel = focus.tank;
     expect(fuel).toBe(8);
     expect(odometer).toBe(660);
   })
   test('[18] adding fuel to a full tank has no effect', () => {
-    expect(focus.fuel).toBe(20);
+    expect(focus.tank).toBe(20);
     focus.refuel(10);
-    expect(focus.fuel).toBe(20);
+    expect(focus.tank).toBe(20);
   })
 })
 
